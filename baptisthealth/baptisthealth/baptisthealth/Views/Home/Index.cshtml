@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+<div class="content">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div style="background-color:#EBEBE6; border-radius:4px">
+                <h3>Welcome to our page</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12" id='calendar'></div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-1">
+
+        </div>
+
+        <div class="col-md-3" style="background-color:#D3DEB5; border-radius:4px; border-bottom:solid 2px; border-right:solid 2px; border-color:#7E7E74">
+
+
+            <section id="loginForm">
+                <div class="form-horizontal">
+                    <h5>Enter credentials to access the system</h5>
+
+
+                    <div class="form-group">
+                        <label for="MainContent_UserName" class="col-md-4 control-label">User name:</label>
+                        <div class="col-md-8">
+                            <input name="ctl00$MainContent$UserName" type="text" id="MainContent_UserName" class="form-control">
+                            <span data-val-controltovalidate="MainContent_UserName" data-val-errormessage="The user name field is required." id="MainContent_ctl01" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="visibility:hidden;">The user name field is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="MainContent_Password" class="col-md-4 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input name="ctl00$MainContent$Password" type="password" id="MainContent_Password" class="form-control">
+                            <span data-val-controltovalidate="MainContent_Password" data-val-errormessage="The password field is required." id="MainContent_ctl03" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="visibility:hidden;">The password field is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="checkbox">
+                                <input id="MainContent_RememberMe" type="checkbox" name="ctl00$MainContent$RememberMe">
+                                <label for="MainContent_RememberMe">Remember me?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" name="ctl00$MainContent$ctl05" value="Log in" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$ctl05&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" class="btn btn-default">
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size:small">
+
+                    Click @Html.ActionLink("Here", "registervendors", "vendor", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+
+                    if you are a new Vendor.
+                </p>
+            </section>
+
+        </div>
+
+        <br />
+        <br />
+        &nbsp;&nbsp;&nbsp;
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3" style="background-color:#F7DED3; border-radius:4px; border-bottom:solid 2px; border-right:solid 2px; border-color:#7E7E74">
+                <h5>Notification Area:</h5>
+                <p>The system will be down doing updates every Friday from 1:00 A.M to 3:00 A.M</p>
+                <p>Read the last version of our Terms and conditions <a runat="server" href="/Account/Login">here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 40px 10px;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        font-size: 14px;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+</style>

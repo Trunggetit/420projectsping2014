@@ -1,0 +1,49 @@
+﻿@model IEnumerable<baptisthealth.Models.vendor>
+
+@{
+    ViewBag.Title = "listofvendor";
+}
+
+<h2>Vendor Mangement</h2>
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" checked>Waiting to be approve
+    </label>
+    <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2"> Approve List
+    </label>
+    <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3"> Deny
+    </label>
+</div>
+<table class="table table-bordered table-hover " id="tablesorting">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.companyname)
+        </th>
+        <td>
+            @Html.DisplayNameFor(model => model.username)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td><a class="btn btn-success" href="@Url.Action("detail", "vendor", new { id = item.vendorid}, null)">Detail</a></td>
+        </tr>
+    }
+
+</table>

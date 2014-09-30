@@ -1,0 +1,153 @@
+﻿@model baptisthealth.Models.vendor
+
+@{
+    ViewBag.Title = "detail";
+}
+
+<h2>Vendor Details</h2>
+<a href="@Url.Action("listofvendor", "vendor")" class="btn-link">Back to List</a>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.companyname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.companyname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.phoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.faxnumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.faxnumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.poboxsuiteapt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.poboxsuiteapt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.city)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.zip)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.zip)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.taxid)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.taxid)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.confirmpassword)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.confirmpassword)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.taxformfilename)
+            </dt>
+
+            <dd>
+                <a href="@("/upload/vendorfileupload/" + Model.taxformfilename)">@Model.taxformfilename</a>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.registrationcode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.registrationcode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.vendorstatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.vendorstatus)
+            </dd>
+
+            <dt></dt>
+
+            <dd>
+                <button class="btn-success">Acept</button>
+
+                <button class="btn-danger">Deny</button>
+            </dd>
+        </dl>
+
+
+    </div>
+    <p>
+
+    </p>

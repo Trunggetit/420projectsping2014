@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.1.1/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.1.1/fullcalendar.print.css">
+    <link href="http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.css" rel="stylesheet">
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+   
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a href="@Url.Action("index","home")">Home</a></li>
+                            <li><a href="@Url.Action("about","home")">About Us</a></li>
+
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Baptist<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Currently Bidding", "Index", "PTDatas")</li>
+                                    <li>@Html.ActionLink("My Win Bid", "Index", "PTDatas")</li>
+                                    <li>@Html.ActionLink("My Watch List", "FindPTData", "PTDatas")</li>
+                                    <li>@Html.ActionLink("My History", "FindPTData", "PTDatas")</li>
+                                </ul>
+                            </li>
+
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Vendor", "listofvendor", "vendor")</li>
+                                </ul>
+                            </li>
+
+
+
+                            <li>
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search for item">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                            </li>
+                        }
+                        <li><a href="@Url.Action("contact","home")">Contact Us</a></li>
+
+</ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="navbar-nav">
+        <ul>
+            <li>Test</li>
+            <li>Test</li>
+
+            <li>Test</li>
+
+            <li>Test</li>
+
+        </ul>
+    </div>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+
+
+
+    <div  class="container body-content">
+        @RenderBody()
+        <hr />
+        
+
+    </div>
+    @*<div class="container footercontainer">
+            <ul>
+                <li style="display:inline"><a href="#">Home|</a></li>
+                <li style="display:inline"><a href="#">About Us|</a></li>
+                <li style="display:inline"><a href="#">Contact Us|</a></li>
+                <li style="display:inline"><a href="#">Site Map|</a></li>
+                <li style="display:inline"><a href="#">Terms and Conditions</a></li>
+            </ul>
+            <p class="text-muted credit" style="color:#1F1F14">&copy; All rights reserved @DateTime.Now - Baptist Health Louisville</p>
+
+    </div>*@
+
+
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    
+    <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.1.1/fullcalendar.min.js"></script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                defaultDate: '2014-09-12',
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: [
+                    {
+                        title: 'All Day Event',
+                        start: '2014-09-01'
+                    },
+                    {
+                        title: 'Long Event',
+                        start: '2014-09-07',
+                        end: '2014-09-10'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2014-09-09T16:00:00'
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: '2014-09-16T16:00:00'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2014-09-11',
+                        end: '2014-09-13'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2014-09-12T10:30:00',
+                        end: '2014-09-12T12:30:00'
+                    },
+                    {
+                        title: 'Lunch',
+                        start: '2014-09-12T12:00:00'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2014-09-12T14:30:00'
+                    },
+                    {
+                        title: 'Happy Hour',
+                        start: '2014-09-12T17:30:00'
+                    },
+                    {
+                        title: 'Dinner',
+                        start: '2014-09-12T20:00:00'
+                    },
+                    {
+                        title: 'Birthday Party',
+                        start: '2014-09-13T07:00:00'
+                    },
+                    {
+                        title: 'Click for Google',
+                        url: 'http://google.com/',
+                        start: '2014-09-28'
+                    }
+                ]
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
