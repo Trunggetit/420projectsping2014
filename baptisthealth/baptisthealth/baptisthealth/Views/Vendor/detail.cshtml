@@ -4,10 +4,13 @@
     ViewBag.Title = "detail";
 }
 
-<h2>Vendor Details</h2>
-<a href="@Url.Action("listofvendor", "vendor")" class="btn-link">Back to List</a>
+<br />
+<a href="@Url.Action("Listofvendor", "vendor")" class="btn-link">Back to List</a>
     <div>
         <hr />
+        <h2>Vendor Details</h2>Current Status: @ViewBag.Vendorstatus
+
+
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.companyname)
@@ -90,22 +93,6 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Password)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Password)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.confirmpassword)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.confirmpassword)
-            </dd>
-
-            <dt>
                 @Html.DisplayNameFor(model => model.email)
             </dt>
 
@@ -122,14 +109,6 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.registrationcode)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.registrationcode)
-            </dd>
-
-            <dt>
                 @Html.DisplayNameFor(model => model.vendorstatus)
             </dt>
 
@@ -140,9 +119,9 @@
             <dt></dt>
 
             <dd>
-                <button class="btn-success">Acept</button>
+                <a href="@Url.Action("Acceptvendor", "vendor", Model, null)" class="btn btn-success">Accept</a>
+                <a href="" class="btn btn-danger">Deny</a>
 
-                <button class="btn-danger">Deny</button>
             </dd>
         </dl>
 
