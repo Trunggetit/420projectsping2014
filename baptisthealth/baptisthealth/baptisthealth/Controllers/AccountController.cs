@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using baptisthealth.Models;
 
-namespace baptisthealth.Controllers
+namespace baptisthealth.ControllersService
 {
     [Authorize]
     public class AccountController : Controller
@@ -34,6 +34,13 @@ namespace baptisthealth.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [AllowAnonymous]
+        public PartialViewResult PartialLogin(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return PartialView();
         }
 
         //
@@ -94,6 +101,15 @@ namespace baptisthealth.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        public ActionResult Customregistermethod(RegisterViewModel model)
+        {
+        var user = new ApplicationUser() { UserName = model.UserName};
+        var result = UserManager.CreateAsync(user, model.Password);
+        return RedirectToAction("Listofvendor", "vendor");
+        }
+
+
 
         //
         // POST: /Account/Disassociate

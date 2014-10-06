@@ -11,8 +11,8 @@ namespace baptisthealth.helper
     {
         public void sendmail(string SenderName, string SenderAddress, string Message)
         {
-            string username = "";
-            string password = "";
+            string username = "tdngo001";
+            string password = "asdfjk123";
             NetworkCredential loginInfo = new NetworkCredential(username, password);
             MailMessage msg = new MailMessage();
 
@@ -21,12 +21,12 @@ namespace baptisthealth.helper
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = loginInfo;
 
-            string message = SenderName + " (" + SenderAddress + ") has a message for you:<br /><br />" + Message;
+            string message = SenderName + " (" + SenderAddress + ") :<br /><br />" + Message;
 
             try
             {
-                msg.From = new MailAddress("tdngo0003@gmail.com", "My Website");
-                msg.To.Add(new MailAddress("tdngo0003@gmail.com"));
+                msg.From = new MailAddress("tdngo001@gmail.com", "My Website");
+                msg.To.Add(new MailAddress(SenderAddress));
                 msg.Subject = "Web Message";
                 msg.Body = message;
                 msg.IsBodyHtml = true;

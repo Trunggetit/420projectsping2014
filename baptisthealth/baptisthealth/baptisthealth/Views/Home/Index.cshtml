@@ -31,48 +31,13 @@
 
         <div class="col-md-3" style="background-color:#D3DEB5; border-radius:4px; border-bottom:solid 2px; border-right:solid 2px; border-color:#7E7E74">
 
-
             <section id="loginForm">
-                <div class="form-horizontal">
+                @if (!Request.IsAuthenticated) {
                     <h5>Enter credentials to access the system</h5>
-
-
-                    <div class="form-group">
-                        <label for="MainContent_UserName" class="col-md-4 control-label">User name:</label>
-                        <div class="col-md-8">
-                            <input name="ctl00$MainContent$UserName" type="text" id="MainContent_UserName" class="form-control">
-                            <span data-val-controltovalidate="MainContent_UserName" data-val-errormessage="The user name field is required." id="MainContent_ctl01" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="visibility:hidden;">The user name field is required.</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="MainContent_Password" class="col-md-4 control-label">Password:</label>
-                        <div class="col-md-8">
-                            <input name="ctl00$MainContent$Password" type="password" id="MainContent_Password" class="form-control">
-                            <span data-val-controltovalidate="MainContent_Password" data-val-errormessage="The password field is required." id="MainContent_ctl03" class="text-danger" data-val="true" data-val-evaluationfunction="RequiredFieldValidatorEvaluateIsValid" data-val-initialvalue="" style="visibility:hidden;">The password field is required.</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-8">
-                            <div class="checkbox">
-                                <input id="MainContent_RememberMe" type="checkbox" name="ctl00$MainContent$RememberMe">
-                                <label for="MainContent_RememberMe">Remember me?</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-8">
-                            <input type="submit" name="ctl00$MainContent$ctl05" value="Log in" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$ctl05&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" class="btn btn-default">
-                        </div>
-                    </div>
-                </div>
-                <p style="font-size:small">
-
-                    Click @Html.ActionLink("Here", "registervendors", "vendor", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-
-                    if you are a new Vendor.
-                </p>
+                    @Html.Partial("~/Views/Account/PartialLogin.cshtml");
+                <p style="font-size:small">Click @Html.ActionLink("Here", "registervendors", "vendor", routeValues: null, htmlAttributes: new { id = "registerLink" }) if you are a new Vendor.</p>
+                }
             </section>
-
         </div>
 
         <br />
