@@ -10,18 +10,18 @@ namespace baptisthealth.DAL
     {
         private baptisthealthdbcontext context = new baptisthealthdbcontext();
 
-        private vendorrepo<vendor> vendorrepository;
+        private vendorrepo<vendor> _vendorrepository;
 
         public vendorrepo<vendor> Vendorrepository
         {
             get
             {
 
-                if (this.vendorrepository == null)
+                if (this._vendorrepository == null)
                 {
-                    this.vendorrepository = new vendorrepo<vendor>(context);
+                    this._vendorrepository = new vendorrepo<vendor>(context);
                 }
-                return vendorrepository;
+                return _vendorrepository;
             }
         }
 
