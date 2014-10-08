@@ -88,9 +88,11 @@ namespace baptisthealth.Controllers
             return View();
         }
 
-        public ActionResult Listofvendor()
+
+        public ActionResult Listofvendor(int status)
         {
-            int vendorstatus = 0;  //Declare the vendor status of 0 mean they are waiting to be approve
+
+            int vendorstatus = status ;  //Declare the vendor status of 0 mean they are waiting to be approve
             return View(_unitOfWork.Vendorrepository.getvendorbystatus(vendorstatus).ToList());
         }
 
@@ -101,6 +103,24 @@ namespace baptisthealth.Controllers
             _unitOfWork.Save();
 
             _baptisthelthfunctionhelpr.sendmail(vendor.companyname, vendor.email, "your application have been approved you can log in now");
+
+            RegisterViewModel registermodel = new RegisterViewModel
+            {
+                UserName = vendor.username,
+                Password = vendor.Password,
+                ConfirmPassword = vendor.Password
+            };
+
+            return RedirectToAction("Customregistermethod", "Account", vendor);
+        }
+
+        public ActionResult Denyvendor(vendor vendor)
+        {
+            vendor.vendorstatus = 2;
+            _unitOfWork.Vendorrepository.Update(vendor);
+            _unitOfWork.Save();
+
+            _baptisthelthfunctionhelpr.sendmail(vendor.companyname, vendor.email, "your application have been denied please call us.");
 
             RegisterViewModel registermodel = new RegisterViewModel
             {
