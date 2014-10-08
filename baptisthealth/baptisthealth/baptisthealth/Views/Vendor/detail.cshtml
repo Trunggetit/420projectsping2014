@@ -5,7 +5,7 @@
 }
 
 <br />
-<a href="@Url.Action("Listofvendor", "vendor")" class="btn-link">Back to List</a>
+<a href="@Url.Action("Listofvendor", "vendor", new {status=1})" class="btn-link">Back to List</a>
     <div>
         <hr />
         <h2>Vendor Details</h2>Current Status: @ViewBag.Vendorstatus
@@ -120,7 +120,7 @@
 
             <dd>
                 <a href="@Url.Action("Acceptvendor", "vendor", Model, null)" class="btn btn-success">Accept</a>
-                <a href="" class="btn btn-danger">Deny</a>
+                <a href="@Url.Action("Denyvendor", "vendor", Model, null)" class="btn btn-danger">Deny</a>
 
             </dd>
         </dl>

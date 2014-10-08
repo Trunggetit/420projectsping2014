@@ -5,17 +5,21 @@
 }
 
 <h2>Vendor Mangement</h2>
-<div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-        <input type="radio" name="options" id="option1" checked>Waiting to be approve
-    </label>
-    <label class="btn btn-primary">
-        <input type="radio" name="options" id="option2"> Approve List
-    </label>
-    <label class="btn btn-primary">
-        <input type="radio" name="options" id="option3"> Deny
-    </label>
-</div>
+
+<script type="text/javascript">
+
+    function GetStatus(item)
+    {
+        window.location.href("Listofvendor?status=" + item);
+    }
+
+</script>
+
+<a class="btn btn-primary" href="@Url.Action("Listofvendor", "vendor", new {status=0})">Awaiting approval</a>
+<a class="btn btn-primary" href="@Url.Action("Listofvendor", "vendor", new {status=1})">Approved List</a>
+<a class="btn btn-primary" href="@Url.Action("Listofvendor", "vendor", new {status=2})">Denied List</a>
+
+
 <table class="table table-bordered table-hover " id="tablesorting">
     <tr>
         <th>
