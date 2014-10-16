@@ -27,45 +27,48 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #A8CB17;">
-        <div class="container">
-            <div class="navbar-header">
-                
-            <div id="logo"><img src="~/Content/img/logo.png" width=25%/></div>
+    <div id="headerpage">
+        <img src="~/Content/img/BHLOUTM-P.png" width:25% height:25%/>
+            <My:UserInfoBoxControl runat="server" ID="UserInfoBoxControl" />
+        </div>
+        <br />   
+      
+               <div id='cssmenu'>
+                <ul>
+                   <li><a href='/Dashboard/DashboardAdmin'><span>Dashboard</span></a></li>
+                   <li class='active has-sub'><a href='#'><span>Manage Users</span></a>
+                      <ul>
+                         <li><a href='/Dashboard/Account/ManageEmployees'><span>Employees</span></a></li>
+                         <li><a href='/Dashboard/Account/ManageVendors'><span>Vendors</span></a>                            
+                         </li>
+                      </ul>
+                   </li>
+                    <li class='active has-sub'><a href='#'><span>Manage RFI</span></a>
+                      <ul>
+                         <li><a href='/Dashboard/RFI/NewRFI'><span>New RFI</span></a></li>
+                         <li><a href='/Dashboard/RFI/ViewRFI'><span>View RFIs</span></a>                            
+                         </li>
+                      </ul>
+                   </li>
+                    <li class='active has-sub'><a href='#'><span>Manage RFP</span></a>
+                      <ul>
+                         <li><a href='/Dashboard/RFP/NewRFP'><span>New RFP</span></a></li>
+                         <li><a href='/Dashboard/RFP/ViewRFP'><span>View RFPs</span></a>                            
+                         </li>
+                      </ul>
+                   </li>
+                    <li class='active has-sub'><a href='#'><span>Manage Contracts</span></a>
+                      <ul>
+                         <li><a href='/Dashboard/Contract/NewContract'><span>New Contract</span></a></li>
+                         <li><a href='/Dashboard/Contract/ViewContracts'><span>View Contracts</span></a>                            
+                         </li>
+                      </ul>
+                   </li>         
+                    <li><a href="/Dashboard/Account/Profile.aspx"><span>User Account</span></a></li>                
+                </ul>
 
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-    
-            </div>
-            <div class="navbar-collapse collapse" style="width:100%">
-                <ul class="nav navbar-nav">
-  
-        
-    <div id='cssmenu'>
-<ul>
-
-@if (!User.Identity.IsAuthenticated)
-{
-    <li><a runat="server" href="~/"><span>Home</span></a></li>
-  
-    <li><a runat="server" href="~/Home/About"><span>About Us</span></a></li>
-
-    <li><a runat="server" href="~/Home/About"><span>Contact Us</span></a></li>
-}
-else
-{
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Baptist<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li>@Html.ActionLink("Currently Bidding", "Index", "PTDatas")</li>
-            <li>@Html.ActionLink("My Win Bid", "Index", "PTDatas")</li>
-            <li>@Html.ActionLink("My Watch List", "FindPTData", "PTDatas")</li>
-            <li>@Html.ActionLink("My History", "FindPTData", "PTDatas")</li>
-        </ul>
-    </li>
+                   
+                </div>
 
 
     <li class="dropdown">
@@ -87,20 +90,6 @@ else
     </li>
 }
    
-</ul>
-</div>
-     
-                        
-
-
-</ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    @Html.Partial("_LoginPartial")
-                </ul>
-            </div>
-        </div>
-    </div>
 
     @*<div class="navbar-nav">
         <ul>
